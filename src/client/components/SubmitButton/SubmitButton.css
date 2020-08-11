@@ -20,19 +20,19 @@
   background-color: hsl(20.8, 40.5%, 51.4%);
 }
 
-.homebutton{
+.homebutton {
   text-align: center;
   margin-top: 77px;
   margin-bottom: 77px;
 }
 
-.SmørrebrødButton{
+.SmørrebrødButton {
   margin-top: 25px;
 }
-.WienerbrødButton{
+.WienerbrødButton {
   margin-bottom: 29px;
   margin-top: 28px;
 }
-.pickGameButton{
+.pickGameButton {
   text-align: center;
 }

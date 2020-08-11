@@ -7,6 +7,6 @@
   align-items: center;
   padding-bottom: 11px;
   position: static; /*changed*/
-  left: 0;/*changed*/
-  bottom: 0;/*changed*/
+  left: 0; /*changed*/
+  bottom: 0; /*changed*/
 }

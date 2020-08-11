@@ -22,7 +22,7 @@ export const PickLevelPage = () => (
         </div>
         <GameTitle title="Smørrebrød" />
 
-        <span>
+        <span className="easy-hard-position">
           <Link to="/game-page">
             <Card text="Easy" image="" />
           </Link>
