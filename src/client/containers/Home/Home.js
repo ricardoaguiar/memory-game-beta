@@ -15,13 +15,20 @@ export const Home = () => (
         <div className="homelogo">
           <GameLogoComponent />
         </div>
-        <Title title="Memory Game" subtitle="- perserve culinary heritage -" />
+        <Title title="MEMORY GAME" subtitle="- perserve culinary heritage -" />
       </div>
+
       <ForkImageComponent />
-      <Link to="/pick-game-page">
-        <SubmitButton buttonTitle="Play EAT THE PAIR" />
-      </Link>
+
+      <div className="homebutton">
+        <Link to="/pick-game-page">
+          <SubmitButton buttonTitle="Play EAT THE PAIR" />
+        </Link>
+      </div>
+
       <SpoonImageComponent />
+    </div>
+    <div className="footer">
       <Footer />
     </div>
   </section>
