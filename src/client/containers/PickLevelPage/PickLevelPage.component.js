@@ -16,11 +16,13 @@ export const PickLevelPage = () => (
         <div className="homelogo">
           <GameLogoComponent />
         </div>
-        <Title title="Memory Game" subtitle="perserve culinary heritage" />
-        <ForkImageComponent />
+        <Title title="MEMORY GAME" subtitle="- perserve culinary heritage -" />
+        <div className="forkimage">
+          <ForkImageComponent />
+        </div>
         <GameTitle title="Smørrebrød" />
 
-        <span>
+        <span className="easy-hard-position">
           <Link to="/game-page">
             <Card text="Easy" image="" />
           </Link>
@@ -32,6 +34,8 @@ export const PickLevelPage = () => (
 
         <SpoonImageComponent />
       </div>
+    </div>
+    <div>
       <Footer />
     </div>
   </section>

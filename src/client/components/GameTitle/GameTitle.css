@@ -1,6 +1,7 @@
 .title {
-  margin-top: 10px;
-  font-family: 'Rammetto One', cursive;
-  color: rgb(128, 83, 51);
-  font-size: 40px;
+  font-family: 'Inknut Antiqua', black;
+  color: #0a63af;
+  font-size: 24px;
+  text-align: center;
+  font-weight: bolder;
 }
