@@ -160,11 +160,6 @@ class Game extends React.Component {
 
     return (
       <div className="Game-board">
-        <header className="Game-header">
-          <div className="Game-title">
-            Find all pairs of cards to win the game!
-          </div>
-        </header>
         <div>{gameStatus}</div>
         <div className="Lvl-button">
           <button onClick={() => { this.lvlCreate(6);this.props.setTime(3)}}>
