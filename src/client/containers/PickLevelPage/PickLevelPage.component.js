@@ -9,6 +9,7 @@ import SpoonImageComponent from '../../components/SpoonImageComponent/SpoonImage
 import ForkImageComponent from '../../components/ForkImageComponent/ForkImageComponent';
 import Footer from '../../components/FooterComponent/FooterComponent';
 
+
 export const PickLevelPage = () => (
   <section className="home bodycontainer">
     <div className="bodywrapper">

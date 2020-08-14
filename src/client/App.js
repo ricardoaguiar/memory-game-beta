@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -6,19 +6,19 @@ import {
   Redirect,
 } from 'react-router-dom';
 import { Home } from './containers/Home/Home';
-import { ErrorPage } from './containers/404Page/404Page.component';
-import { GamePage } from './containers/GamePage/GamePage.component';
 import { PickGamePage } from './containers/PickGamePage/PickGamePage.component';
 import { PickLevelPage } from './containers/PickLevelPage/PickLevelPage.component';
+import { GamePage } from './containers/GamePage/GamePage.component';
 import { RecipePage } from './containers/RecipePage/RecipePage.component';
 import { VoucherPage } from './containers/VoucherPage/VoucherPage.component';
-import { AppContext } from './AppContext';
+// import  Game  from './components/Game/Game.js';
+import { ErrorPage } from './containers/404Page/404Page.component';
+import Timer from './components/Timer/Timer.js';
 
 function App() {
-  const [appState, setAppState] = useState();
 
   return (
-    <AppContext.Provider value={{ appState, setAppState }}>
+    <React.StrictMode>
       <Router>
         <Switch>
           <Route exact path="/">
@@ -45,7 +45,7 @@ function App() {
           <Redirect to="/404-page" />
         </Switch>
       </Router>
-    </AppContext.Provider>
+      </React.StrictMode>
   );
 }
 export default App;

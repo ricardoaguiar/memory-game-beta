@@ -1,25 +1,47 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import moment from 'moment';
-import './Timer.styles.css';
+import React, { Component } from 'react'
 
-const Timer = ({ countdown }) => {
-  const [counter, setCounter] = useState(countdown);
+export default class Timer extends Component {
+    state = {
+        minutes: null,
+        seconds: 0,
+    }
 
-  useEffect(() => {
-    const timer = counter && setTimeout(() => setCounter(counter - 1), 1000);
-    return () => clearInterval(timer);
-  }, [counter]);
+    componentDidMount() {
+        this.setState({minutes:this.props.timeLevel})
+        this.myInterval = setInterval(() => {
+            const { seconds, minutes } = this.state
 
-  return (
-    <div className="timer-content">
-      <span>{moment.unix(counter).format('mm:ss')}</span>
-    </div>
-  );
-};
+            if (seconds > 0) {
+                this.setState(({ seconds }) => ({
+                    seconds: seconds - 1
+                }))
+            }
+            if (seconds === 0) {
+                if (minutes === 0) {
+                    clearInterval(this.myInterval)
+                } else {
+                    this.setState(({ minutes }) => ({
+                        minutes: minutes - 1,
+                        seconds: 59
+                    }))
+                }
+            } 
+        }, 1000)
+    }
 
-Timer.propTypes = {
-  countdown: PropTypes.number.isRequired,
-};
+    componentWillUnmount() {
+        clearInterval(this.myInterval)
+    }
 
-export default Timer;
+    render() {
+        const { minutes, seconds } = this.state
+        let statusGame=minutes === 0 && seconds === 0
+        ? <h1>Time out!</h1>
+        : <h1>Time: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
+        return (
+            <div>
+                {statusGame}
+            </div>
+        )
+    }
+}

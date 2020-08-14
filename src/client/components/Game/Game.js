@@ -1,68 +1,186 @@
-import React from 'react';
-// import PropTypes from 'prop-types';
-import Card from '../Card/Card';
-import Aeg from '../../assets/images/smorrebrod/Aeg/Aeg.png';
+import React from "react";
+import Board from "../Board/Board.js";
+import shuffle from "shuffle-array";
+import "./Game.css";
 
-export default function Game(level) {
-  //   const animals = ['Dog', 'Bird', 'Cat', 'Mouse', 'Horse'];
-
-  const elementsEasy = [
-    { id: 1, image: { Aeg } },
-    { id: 2, image: { Aeg } },
-  ];
-
-  const elementsHard = [
-    { id: 1, image: { Aeg } },
-    { id: 2, image: { Aeg } },
-    { id: 3, image: { Aeg } },
-    { id: 4, image: { Aeg } },
-  ];
-
-  //   const elementsEasy = [{ Aeg }, { Aeg }];
-  //   const elementsHard = [{ Aeg }, { Aeg }, { Aeg }, { Aeg }];
-  let elements = [];
-
-  if (level === 'easy') {
-    elements = elementsEasy;
-  } else if (level === 'hard') {
-    elements = elementsHard;
-  } else {
-    return elements;
+class Game extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onCardClicked = this.onCardClicked.bind(this);
+    this.lvlCreate = this.lvlCreate.bind(this);
+    this.cards = [];
   }
 
-  return (
-    <div>
-      console.log(level); console.log(elements);
-      <ul>
-        {elements.map((element) => (
-          <ui>
-            console.log(level);
-            <li key={element.id}>
-              <Card image={element.image} />
-            </li>
-          </ui>
-        ))}
-      </ul>
-    </div>
-  );
+  componentWillMount() {
+    this.lvlCreate(6);
+  }
+
+  createCardSet(level) {
+    this.cards = [];
+    let id = 1;
+    this.level = level;
+    for (let i = 1; i <= level; i++) {
+      let card1 = {
+        id: id,
+        image: i,
+        imageUp: false,
+        matched: false
+      };
+      id++;
+      let card2 = {
+        id: id,
+        image: i,
+        imageUp: false,
+        matched: false
+      };
+      this.cards.push(card1);
+      this.cards.push(card2);
+      id++;
+    }
+
+    shuffle(this.cards);
+  }
+
+  getCard(id) {
+    for (let i = 0; i < 2 * this.level; i++) {
+      if (this.cards[i].id === id) {
+        return this.cards[i];
+      }
+    }
+  }
+
+  flipCard(id, imageUp) {
+    this.getCard(id).imageUp = imageUp;
+  }
+
+  setCardAsMatched(id, matched) {
+    this.getCard(id).matched = matched;
+  }
+
+  theSameCards(id1, id2) {
+    if (this.getCard(id1).image === this.getCard(id2).image) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // Set view of the game board
+  getCardViews() {
+    let cardViews = [];
+    let onClick = this.onCardClicked;
+    this.cards.forEach(c => {
+      let cardView = (
+        <Board
+          key={c.id}
+          id={c.id}
+          image={c.image}
+          imageUp={c.imageUp}
+          matched={c.matched}
+          onClick={onClick}
+        />
+      );
+      cardViews.push(cardView);
+    });
+    return cardViews;
+  }
+
+  // No pair found within a turn
+  clearCards(id1, id2) {
+    if (this.state.clicksInATurn !== 2) {
+      return;
+    }
+    this.flipCard(this.state.firstId, false);
+    this.flipCard(this.state.secondId, false);
+    this.setState({
+      firstId: undefined,
+      secondId: undefined,
+      clicksInATurn: 0,
+      turnsCounter: this.state.turnsCounter + 1
+    });
+  }
+
+  // Set game logic if a card was clicked
+  onCardClicked(id, image) {
+    if (this.state.clicksInATurn === 0 || this.state.clicksInATurn === 2) {
+      if (this.state.clicksInATurn === 2) {
+        clearTimeout(this.timeout);
+        this.clearCards(this.state.firstId, this.state.secondId);
+      }
+      this.flipCard(id, true);
+      this.setState({
+        firstId: id,
+        clicksInATurn: 1
+      });
+    } else if (this.state.clicksInATurn === 1) {
+      this.flipCard(id, true);
+      this.setState({
+        secondId: id,
+        clicksInATurn: 2
+      });
+
+      if (this.theSameCards(id, this.state.firstId)) {
+        this.setCardAsMatched(this.state.firstId, true);
+        this.setCardAsMatched(id, true);
+        this.setState({
+          pairsCounter: this.state.pairsCounter + 1,
+          firstId: undefined,
+          secondId: undefined,
+          turnsCounter: this.state.turnsCounter + 1,
+          clicksInATurn: 0
+        });
+      } else {
+        this.timeout = setTimeout(() => {
+          this.clearCards(this.state.firstId, this.state.secondId);
+        }, 2000);
+      }
+    }
+  }
+
+  lvlCreate(level) {
+    this.createCardSet(level);
+    this.setState({
+      turnsCounter: 1,
+      pairsCounter: 0,
+      clicksInATurn: 0,
+      firstId: undefined,
+      secondId: undefined
+    });
+  }
+
+  // Show game score
+  render() {
+    let gameBoard = this.getCardViews();
+    let gameStatus = (
+      <div className="Game-status">
+        <div>Turns: {this.state.turnsCounter}</div>
+        <div>Pairs found: {this.state.pairsCounter}</div>
+      </div>
+    );
+
+    return (
+      <div className="Game-board">
+        <header className="Game-header">
+          <div className="Game-title">
+            Find all pairs of cards to win the game!
+          </div>
+        </header>
+        <div>{gameStatus}</div>
+        <div className="Lvl-button">
+          <button onClick={() => { this.lvlCreate(6);this.props.setTime(3)}}>
+            Easy
+          </button>
+          {/* <button onClick={() => {this.lvlCreate(8);this.props.setTime(6)}}>
+            Medium
+          </button> */}
+          <button onClick={() => {this.lvlCreate(10);this.props.setTime(8)}}>
+            Hard
+          </button>
+        </div>
+        <div className="Card-container">{gameBoard}</div>
+      </div>
+    );
+  }
 }
 
-// export default function Game({ level }) {
-
-//     let elementsEasy = [Aeg, Aeg];
-//     let elementsHard = [Aeg, Aeg, Aeg, Aeg];
-
-// if (level === 'easy') return
-// (elementsEasy.map((value, index) => {
-//      <Card image={value}/>;
-//   }
-//   return
-
-//   if (level === 'hard') return
-//   {elementsHard.map((value, index) => {
-//     return <Card image={value}/>;
-//   })}
-
-// Game.propTypes = {
-//   level: PropTypes.string.isRequired,
-// };
+export default Game;
