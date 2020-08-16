@@ -1,9 +1,10 @@
 .fork-image {
  margin-top: 22px;
- left: 55px;
  overflow: hidden;
  position: relative;
 }
 .fork-image img {
-  width: 100%;
+  max-width: 100%;
+  position: relative;
+  left: 55px;
 }

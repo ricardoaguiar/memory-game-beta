@@ -1,9 +1,11 @@
 .spoon-image {
-  right: 55px;
+  display: block;
+  max-width: 100%;
   overflow: hidden;
-  position: relative;
-  margin-bottom: 15%;
- }
+}
 .spoon-image img {
-  width: 100%;
+  margin-bottom: 15%;
+  max-width: 100%;
+  position: relative;
+  right: 55px ;
 }

@@ -26,6 +26,7 @@ export const Home = () => (
       </div>
 
       <SpoonImageComponent />
+      
     <div className="footer">
       <Footer />
     </div>
