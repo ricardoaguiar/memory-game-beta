@@ -1,0 +1,9 @@
+.spoon-image {
+  right: 55px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 15%;
+ }
+.spoon-image img {
+  width: 100%;
+}

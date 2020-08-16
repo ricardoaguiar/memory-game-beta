@@ -1,0 +1,16 @@
+.header-heading h2 {
+  color: #0a63af;
+  font-size: 22px;
+  /*background-color: white;*/
+  text-align: center;
+  padding: 5px 0px 5px 0px;
+  min-height: 56px;
+}
+
+.header-heading h3 {
+  font-size: 14px;
+  letter-spacing: .1mm;
+  text-align: center;
+  padding: 5px 0px 5px 0px;
+}
+
