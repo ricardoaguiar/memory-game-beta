@@ -11,9 +11,7 @@ import { PickLevelPage } from './containers/PickLevelPage/PickLevelPage.componen
 import { GamePage } from './containers/GamePage/GamePage.component';
 import { RecipePage } from './containers/RecipePage/RecipePage.component';
 import { VoucherPage } from './containers/VoucherPage/VoucherPage.component';
-// import  Game  from './components/Game/Game.js';
 import { ErrorPage } from './containers/404Page/404Page.component';
-// Timer from './components/Timer/Timer.js';
 
 function App() {
 

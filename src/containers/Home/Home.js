@@ -9,8 +9,7 @@ import SubmitButton from '../../components/SubmitButton/SubmitButton';
 import Footer from '../../components/FooterComponent/FooterComponent';
 
 export const Home = () => (
-  <section className="home bodycontainer">
-    <div className="bodywrapper">
+  <body className="bodycontainer">
       <div className="headercontainer">
         <div className="homelogo">
           <GameLogoComponent />
@@ -27,9 +26,8 @@ export const Home = () => (
       </div>
 
       <SpoonImageComponent />
-    </div>
     <div className="footer">
       <Footer />
     </div>
-  </section>
+  </body>
 );

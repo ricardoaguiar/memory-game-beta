@@ -1,9 +1,7 @@
 .Game-board {
   text-align: center;
-  font-family: Georgia;
   max-width: 500px;
-  color: black;
-  margin: 0 auto;
+  margin: 0 auto 10%;
 }
 
 .Game-header {
@@ -16,22 +14,24 @@
 }
 
 .Game-status {
-  padding: 20px; 
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  color: #707070;
+  margin: 10px 25px;
+
 }
 
-.Game-status div {
-  color: black;
-  margin-bottom: 10px; 
-}
-
-.Card {
+.Card-easy {
   display: flex;
   margin-bottom: 10px;      
   margin-left: 10px;  
-  width: 8vw;
+  width: 100px;
   border-radius: 50%;    
   cursor: pointer;
 }
+
+
 
 .Matched {
   border-color: #ff6700;
@@ -59,4 +59,8 @@
   background: #fff;
   font-weight: bold;
   border-color: #ff6700;
+}
+
+.Turns {
+
 }

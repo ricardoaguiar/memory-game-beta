@@ -1,12 +1,14 @@
 .button-component {
   color: white;
-  font-family: 'Inknut Antiqua', Black;
+  font-family: 'Inknut Antiqua';
+  font-weight: 900;
+  letter-spacing: .1mm;
   background: #f26114;
   border-radius: 17px;
   border: none;
   width: 251px;
   height: 72px;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 42px;
   padding: 12px 22px;
   text-align: center;
@@ -22,17 +24,26 @@
 
 .homebutton {
   text-align: center;
-  margin-top: 77px;
-  margin-bottom: 77px;
+  margin: 20% auto;
 }
 
 .SmørrebrødButton {
-  margin-top: 25px;
+  text-align: center;
+  margin: 10% auto 0;
 }
 .WienerbrødButton {
-  margin-bottom: 29px;
-  margin-top: 28px;
+  text-align: center;
+  margin: 10% auto 12%;
 }
 .pickGameButton {
   text-align: center;
+}
+.quitGame,
+.changeMeals {
+  text-align: center;
+  margin: 0 auto 10%;
+}
+.pressToContinue {
+  text-align: center;
+  margin-bottom: 5%;
 }

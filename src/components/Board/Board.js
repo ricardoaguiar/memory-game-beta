@@ -22,7 +22,7 @@ class Board extends React.Component {
       imagePath = imagePath + 'back.png';
     }
 
-    let className='Card';
+    let className='Card-easy';
     if (this.props.matched) {
       className = className + ' Matched';
     }

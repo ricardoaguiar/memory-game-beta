@@ -11,14 +11,11 @@ import Footer from '../../components/FooterComponent/FooterComponent';
 export const PickGamePage = () => (
   <section className="home bodycontainer">
     <div className="bodywrapper">
-      <div className="homelogocontainer">
         <div className="homelogo">
           <GameLogoComponent />
         </div>
         <Title title="MEMORY GAME" subtitle="- perserve culinary heritage -" />
-        <div className="forkimage">
           <ForkImageComponent />
-        </div>
         <div className="pickGameButton SmørrebrødButton">
           <Link to="/pick-level-page">
             <SubmitButton buttonTitle="Smørrebrød" />
@@ -29,13 +26,11 @@ export const PickGamePage = () => (
             <SubmitButton buttonTitle="Wienerbrød" />
           </Link>
         </div>
-        <div className="spoonimage">
           <SpoonImageComponent />
-        </div>
-      </div>
     </div>
-    <div className="footer">
+
+    {/* <div className="footer"> */}
       <Footer />
-    </div>
+    {/* </div> */}
   </section>
 );

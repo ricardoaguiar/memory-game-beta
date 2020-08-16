@@ -1,13 +1,13 @@
 import React from 'react';
 import Game from '../../components/Game/Game';
 import GameLogoComponent from '../../components/GameLogoComponent/GameLogoComponent';
-import SpoonImageComponent from '../../components/SpoonImageComponent/SpoonImageComponent';
+// import SpoonImageComponent from '../../components/SpoonImageComponent/SpoonImageComponent';
 // import Timer from '../../components/Timer/Timer';
+import SubmitButton from '../../components/SubmitButton/SubmitButton';
 import ForkImageComponent from '../../components/ForkImageComponent/ForkImageComponent';
 import Footer from '../../components/FooterComponent/FooterComponent';
 
 export const GamePage = () => (
-  <React.StrictMode>
   <section className="home bodycontainer">
     <div className="bodywrapper">
       <div className="homelogocontainer">
@@ -19,10 +19,12 @@ export const GamePage = () => (
         {/* <Game level="easy" /> */}
         {/* <Timer /> */}
         <Game />
-        <SpoonImageComponent />
+        {/* <SpoonImageComponent /> */}
       </div>
-      <Footer />
+      <div className="quitGame">
+        <SubmitButton buttonTitle="Quit Game" />
+      </div>
     </div>
+      <Footer />
   </section>
-  </React.StrictMode>
 );

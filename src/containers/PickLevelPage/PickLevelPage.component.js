@@ -7,8 +7,8 @@ import Card from '../../components/Card/Card';
 import GameLogoComponent from '../../components/GameLogoComponent/GameLogoComponent';
 import SpoonImageComponent from '../../components/SpoonImageComponent/SpoonImageComponent';
 import ForkImageComponent from '../../components/ForkImageComponent/ForkImageComponent';
+import SubmitButton from '../../components/SubmitButton/SubmitButton';
 import Footer from '../../components/FooterComponent/FooterComponent';
-
 
 export const PickLevelPage = () => (
   <section className="home bodycontainer">
@@ -34,10 +34,14 @@ export const PickLevelPage = () => (
         </span>
 
         <SpoonImageComponent />
+
       </div>
     </div>
-    <div>
-      <Footer />
+
+    <div className="changeMeals">
+        <SubmitButton buttonTitle="Change Meals" />
     </div>
+
+      <Footer />
   </section>
 );
