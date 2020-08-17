@@ -38,4 +38,4 @@ dist/
 
 .DS_Store
 _old_public
-old_components
+old_components/
