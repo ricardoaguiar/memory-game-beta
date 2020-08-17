@@ -154,7 +154,7 @@ class Game extends React.Component {
     let gameStatus = (
       <div className="Game-status">
         <div>Turns: {this.state.turnsCounter}</div>
-        <div>Pairs found: {this.state.pairsCounter}</div>
+        <div>Found: {this.state.pairsCounter}</div>
       </div>
     );
 
