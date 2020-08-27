@@ -24,11 +24,11 @@ export const PickLevelPage = () => (
         <GameTitle title="Smørrebrød" />
 
         <span className="easy-hard-position">
-          <Link to="/game-page">
+          <Link to={{ pathname: "/game-page", query: { level: 'easy' } }}>
             <Card text="Easy" image="" />
           </Link>
 
-          <Link to="/game-page">
+          <Link to={{ pathname: "/game-page", query: { level: 'hard' } }}>
             <Card text="Hard" image="" />
           </Link>
         </span>
@@ -39,9 +39,9 @@ export const PickLevelPage = () => (
     </div>
 
     <div className="changeMeals">
-        <SubmitButton buttonTitle="Change Meals" />
+      <SubmitButton buttonTitle="Change Meals" />
     </div>
 
-      <Footer />
+    <Footer />
   </section>
 );
