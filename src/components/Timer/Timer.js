@@ -1,34 +1,47 @@
-import React from "react";
-// import {useHistory} from 'react-router-dom';
-import Countdown from "react-countdown";
-import './Timer.css';
+import React, { Component } from 'react'
 
+export default class Timer extends Component {
+  state = {
+    minutes: null,
+    seconds: 0,
+  }
 
-// function Home() {
-//   const history = useHistory();
-//     return <>{() => history.push('/')}</>;
-//   }
-  
-// Random component
-const Completionist = () => <span className="timer">Game Over!</span> 
+  componentDidMount() {
+    this.setState({ minutes: this.props.timeLevel })
+    this.myInterval = setInterval(() => {
+      const { seconds, minutes } = this.state
 
-// Renderer callback with condition
-const renderer = ({ minutes, seconds, completed }) => {
-  if (completed) {
-    // Render a complete state
-    return <Completionist />;
-  } else {
-    // Render a countdown
+      if (seconds > 0) {
+        this.setState(({ seconds }) => ({
+          seconds: seconds - 1
+        }))
+      }
+      if (seconds === 0) {
+        if (minutes === 0) {
+          clearInterval(this.myInterval)
+        } else {
+          this.setState(({ minutes }) => ({
+            minutes: minutes - 1,
+            seconds: 59
+          }))
+        }
+      }
+    }, 1000)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.myInterval)
+  }
+
+  render() {
+    const { minutes, seconds } = this.state
+    let statusGame = minutes === 0 && seconds === 0
+      ? <p>Time out!</p>
+      : <p>Time: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</p>
     return (
-      <span>
-        {minutes}:{seconds}
-      </span>
-    );
+      <div>
+        {statusGame}
+      </div>
+    )
   }
-};
-  export default function Timer(){
-      return (
-        <Countdown date={Date.now() + 11000} renderer={renderer} precision={3} /> 
-);  
-  }
-  
+}
