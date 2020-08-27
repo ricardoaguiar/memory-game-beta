@@ -2,6 +2,7 @@ import React from "react";
 import Board from "../Board/Board.js";
 import shuffle from "shuffle-array";
 import "./Game.css";
+import Timer from "../Timer/Timer.js";
 
 class Game extends React.Component {
   constructor(props) {
@@ -147,13 +148,16 @@ class Game extends React.Component {
       secondId: undefined
     });
   }
-
+  componentDidMount() {
+    this.lvlCreate(this.props.cardNumbers)
+  }
   // Show game score
   render() {
+    console.log(this.props.timeLevel, this.props.cardNumbers);
     let gameBoard = this.getCardViews();
     let gameStatus = (
       <div className="Game-status">
-        <div>Turns: {this.state.turnsCounter}</div>
+        <div><Timer timeLevel={this.props.timeLevel} /></div>
         <div>Found: {this.state.pairsCounter}</div>
       </div>
     );
@@ -161,10 +165,10 @@ class Game extends React.Component {
     return (
       <div className="Game-board">
         <div>{gameStatus}</div>
-        <div className="Lvl-button">
-          <button onClick={() => {this.lvlCreate(6)}}>Easy</button>
-          <button onClick={() => {this.lvlCreate(10)}}>Hard</button>
-        </div>
+        {/* <div className="Lvl-button">
+          <button onClick={() => { this.lvlCreate(6) }}>Easy</button>
+          <button onClick={() => { this.lvlCreate(10) }}>Hard</button>
+        </div> */}
         <div className="Card-container">{gameBoard}</div>
       </div>
     );
