@@ -32,8 +32,8 @@ export default class GamePage extends React.Component {
           <Game timeLevel={timeLevel} cardNumbers={cardNumbers} />
         </div>
         <div className="quitGame">
-          <Link to='/'>
-            <SubmitButton buttonTitle="Quit Game" />
+          <Link to='/pick-level-page'>
+            <SubmitButton buttonTitle="Change Level" />
           </Link>
         </div>
       </div>
