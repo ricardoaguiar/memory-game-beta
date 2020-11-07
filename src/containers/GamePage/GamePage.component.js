@@ -1,12 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Game from '../../components/Game/Game';
-import GameLogoComponent from '../../components/GameLogoComponent/GameLogoComponent';
+import React from 'react'
+import {Link} from 'react-router-dom'
+import Game from '../../components/Game/Game'
+// import GameLogoComponent from '../../components/GameLogoComponent/GameLogoComponent';
 // import SpoonImageComponent from '../../components/SpoonImageComponent/SpoonImageComponent';
-import Timer from '../../components/Timer/Timer';
-import SubmitButton from '../../components/SubmitButton/SubmitButton';
-import ForkImageComponent from '../../components/ForkImageComponent/ForkImageComponent';
-import Footer from '../../components/FooterComponent/FooterComponent';
+// import Timer from '../../components/Timer/Timer';
+import SubmitButton from '../../components/SubmitButton/SubmitButton'
+import ForkImageComponent from '../../components/ForkImageComponent/ForkImageComponent'
+// import Footer from '../../components/FooterComponent/FooterComponent';
+import Layout from '../../components/Layout'
 
 export default class GamePage extends React.Component {
   getLevelTime = () => {
@@ -22,22 +23,16 @@ export default class GamePage extends React.Component {
   render() {
     const timeLevel = this.getLevelTime()
     const cardNumbers = this.getCardNumbers()
-    return <section className="home bodycontainer">
-      <div className="bodywrapper">
-        <div className="homelogocontainer">
-          <div className="homelogo">
-            <GameLogoComponent />
-          </div>
-          <ForkImageComponent />
-          <Game timeLevel={timeLevel} cardNumbers={cardNumbers} />
-        </div>
+    return (
+      <Layout>
+        <ForkImageComponent />
+        <Game timeLevel={timeLevel} cardNumbers={cardNumbers} />
         <div className="quitGame">
-          <Link to='/pick-level-page'>
+          <Link to="/pick-level-page">
             <SubmitButton buttonTitle="Change Level" />
           </Link>
         </div>
-      </div>
-      <Footer />
-    </section>
+      </Layout>
+    )
   }
 }
