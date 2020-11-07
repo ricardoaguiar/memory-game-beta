@@ -5,6 +5,7 @@ import "./Game.css";
 import Timer from "../Timer/Timer.js";
 
 class Game extends React.Component {
+  
   constructor(props) {
     super(props);
     this.onCardClicked = this.onCardClicked.bind(this);

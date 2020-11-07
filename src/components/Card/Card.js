@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Card.css';
 
-export default function Card({ text, image, disabled }) {
+export default function Card({ text, image, disabled}) {
   const content = (
-    <button
+    <button 
       className="card-component"
       type="submit"
       image={image}
