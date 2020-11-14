@@ -10,23 +10,22 @@ import Footer from '../../components/FooterComponent/FooterComponent';
 
 export const Home = () => (
   <body className="bodycontainer">
-      <div className="headercontainer">
-        <div className="homelogo">
-          <GameLogoComponent />
-        </div>
-        <Title title="MEMORY GAME" subtitle="- perserve culinary heritage -" />
+    <div className="headercontainer">
+      <div className="homelogo">
+        <GameLogoComponent />
       </div>
+      <Title title="MEMORY GAME" subtitle="- perserve culinary heritage -" />
+    </div>
 
-      <ForkImageComponent />
+    <ForkImageComponent />
+    <div className="homebutton">
+      <Link to="/pick-game-page">
+        <SubmitButton buttonTitle="Play EAT THE PAIR" />
+      </Link>
+    </div>
 
-      <div className="homebutton">
-        <Link to="/pick-game-page">
-          <SubmitButton buttonTitle="Play EAT THE PAIR" />
-        </Link>
-      </div>
+    <SpoonImageComponent />
 
-      <SpoonImageComponent />
-      
     <div className="footer">
       <Footer />
     </div>
