@@ -1,10 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Game from '../../components/Game/Game';
-import GameLogoComponent from '../../components/GameLogoComponent/GameLogoComponent';
-import SubmitButton from '../../components/SubmitButton/SubmitButton';
-import ForkImageComponent from '../../components/ForkImageComponent/ForkImageComponent';
-import Footer from '../../components/FooterComponent/FooterComponent';
+import React from 'react'
+import {Link} from 'react-router-dom'
+import Game from '../../components/Game/Game'
+import SubmitButton from '../../components/SubmitButton/SubmitButton'
+import ForkImageComponent from '../../components/ForkImageComponent/ForkImageComponent'
+import Layout from '../../components/Layout'
 
 export default class GamePage extends React.Component {
   state = {
@@ -34,10 +33,10 @@ export default class GamePage extends React.Component {
         <div className="quitGame">
           <Link to='/pick-level-page'>
             <SubmitButton buttonTitle="Change level" />
+
           </Link>
         </div>
-      </div>
-      <Footer />
-    </section>
+      </Layout>
+    )
   }
 }

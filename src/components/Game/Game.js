@@ -6,6 +6,7 @@ import Timer from "../Timer/Timer.js";
 import CustomizedAlert from "../CustomizedAlert/CustomizedAlert.js";
 
 class Game extends React.Component {
+  
   constructor(props) {
     super(props);
     this.onCardClicked = this.onCardClicked.bind(this);
