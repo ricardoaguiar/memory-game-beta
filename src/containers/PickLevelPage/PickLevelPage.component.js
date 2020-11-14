@@ -17,15 +17,16 @@ export const PickLevelPage = () => (
     </div>
     <GameTitle title="Smørrebrød" />
 
-    <span className="easy-hard-position">
-      <Link to={{pathname: '/game-page', query: {level: 'easy'}}}>
-        <Card text="Easy" image="" />
-      </Link>
 
-      <Link to={{pathname: '/game-page', query: {level: 'hard'}}}>
-        <Card text="Hard" image="" />
-      </Link>
-    </span>
+        <span className="easy-hard-position">
+          <Link to={{ pathname: "/game-page", search: 'easy' }}>
+            <Card text="Easy" image="" color='#77b800' />
+          </Link>
+
+          <Link to={{ pathname: "/game-page", search: 'hard' }}>
+            <Card text="Hard" image="" color='#f77521' />
+          </Link>
+        </span>
 
     <SpoonImageComponent />
 
@@ -33,6 +34,13 @@ export const PickLevelPage = () => (
       <div className="changeMeals">
         <SubmitButton buttonTitle="Change Meals" />
       </div>
-    </Link>
-  </Layout>
-)
+    </div>
+    <div className="quitGame">
+      <Link to='/pick-game-page'>
+        <SubmitButton buttonTitle="Change meal" />
+      </Link>
+    </div>
+
+    <Footer />
+  </section>
+);

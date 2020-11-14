@@ -10,14 +10,26 @@ import SubmitButton from '../../components/SubmitButton/SubmitButton';
 import Layout from '../../components/Layout';
 
 export const Home = () => (
-  <Layout>
-        <Title title="MEMORY GAME" subtitle="- perserve culinary heritage -" />  
-        <ForkImageComponent />
-        <div className="homebutton">
-          <Link to="/pick-game-page">
-            <SubmitButton buttonTitle="Play EAT THE PAIR" />
-          </Link>
-        </div>
-        <SpoonImageComponent />
-</Layout>
+  <body className="bodycontainer">
+    <div className="headercontainer">
+      <div className="homelogo">
+        <GameLogoComponent />
+      </div>
+      <Title title="MEMORY GAME" subtitle="- perserve culinary heritage -" />
+    </div>
+
+    <ForkImageComponent />
+    <div className="homebutton">
+      <Link to="/pick-game-page">
+        <SubmitButton buttonTitle="Play EAT THE PAIR" />
+      </Link>
+    </div>
+
+    <SpoonImageComponent />
+
+    <div className="footer">
+      <Footer />
+    </div>
+  </body>
+
 );

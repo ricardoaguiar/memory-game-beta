@@ -6,26 +6,34 @@ import ForkImageComponent from '../../components/ForkImageComponent/ForkImageCom
 import Layout from '../../components/Layout'
 
 export default class GamePage extends React.Component {
-  getLevelTime = () => {
-    const currentLevel = this.props.location.query.level
-    if (currentLevel === 'easy') return 6
-    else if (currentLevel === 'hard') return 8
+  state = {
+    currentLevel: this.props.location.search && this.props.location.search
   }
-  getCardNumbers = () => {
-    const currentLevel = this.props.location.query.level
-    if (currentLevel === 'easy') return 6
-    else if (currentLevel === 'hard') return 8
-  }
+  // getLevelTime = () => {
+  //   const { currentLevel } = this.state
+  //   if (currentLevel === '?easy') return 1
+  //   else if (currentLevel === '?hard') return 8
+  // }
+  // getCardNumbers = () => {
+  //   const { currentLevel } = this.state
+  //   if (currentLevel === '?easy') return 6
+  //   else if (currentLevel === '?hard') return 8
+  // }
   render() {
-    const timeLevel = this.getLevelTime()
-    const cardNumbers = this.getCardNumbers()
-    return (
-      <Layout>
-        <ForkImageComponent />
-        <Game timeLevel={timeLevel} cardNumbers={cardNumbers} />
+    const { currentLevel } = this.state
+    return <section className="home bodycontainer">
+      <div className="bodywrapper">
+        <div className="homelogocontainer">
+          <div className="homelogo">
+            <GameLogoComponent />
+          </div>
+          <ForkImageComponent />
+          <Game currentLevel={currentLevel} />
+        </div>
         <div className="quitGame">
-          <Link to="/pick-level-page">
-            <SubmitButton buttonTitle="Change Level" />
+          <Link to='/pick-level-page'>
+            <SubmitButton buttonTitle="Change level" />
+
           </Link>
         </div>
       </Layout>
