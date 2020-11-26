@@ -10,11 +10,8 @@ import SubmitButton from '../../components/SubmitButton/SubmitButton';
 import Layout from '../../components/Layout';
 
 export const Home = () => (
-  <body className="bodycontainer">
+  <Layout>
     <div className="headercontainer">
-      <div className="homelogo">
-        <GameLogoComponent />
-      </div>
       <Title title="MEMORY GAME" subtitle="- perserve culinary heritage -" />
     </div>
 
@@ -26,10 +23,6 @@ export const Home = () => (
     </div>
 
     <SpoonImageComponent />
-
-    <div className="footer">
-      <Footer />
-    </div>
-  </body>
+  </Layout>
 
 );
