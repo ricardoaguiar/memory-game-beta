@@ -1,9 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './Card.css';
+import React from "react"
+import PropTypes from "prop-types"
+import "./Card.css"
 
-
-export default function Card({ text, image, disabled, color }) {
+export default function Card({
+  text,
+  image,
+  disabled,
+  style: userStyles = {},
+}) {
 
   const content = (
     <button 
@@ -11,16 +15,17 @@ export default function Card({ text, image, disabled, color }) {
       type="submit"
       image={image}
       disabled={disabled}
-      style={{ backgroundColor: color }}
+      style={userStyles}
+
     >
       {text}
     </button>
-  );
-  return <div className="header-heading">{content}</div>;
+  )
+  return <div className="header-heading">{content}</div>
 }
 Card.propTypes = {
   text: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
-};
-Card.defaultProps = { disabled: false };
+}
+Card.defaultProps = { disabled: false }

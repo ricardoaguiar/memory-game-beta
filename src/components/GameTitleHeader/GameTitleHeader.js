@@ -1,26 +1,25 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import SmallGameLogoImage from '../../assets/images/logo/logo_2x.png'
-import {Link} from 'react-router-dom'
-import styled from '@emotion/styled'
+import React from "react"
+import { Link } from "react-router-dom"
+import SmallGameLogoImage from "../../assets/images/logo/logo_3x.png"
+import styled from "@emotion/styled"
 
-const Logo = styled.img`
+const Logo = styled.div`
   display: block;
-  margin: 0 auto;
-  padding-top: 0.5rem;
+  width: 100%;
+  text-align: center;
+  padding-top: 15px;
+  & img {
+    width: 100px;
+  }
 `
-
-const Title = ({title}) => {
+const Header = () => {
   return (
-    <Link to="/">
-      {title}
-      <Logo src={SmallGameLogoImage} alt="Game Logo" />
-    </Link>
+    <Logo>
+      <Link to="/">
+        <img src={SmallGameLogoImage} alt="Game Logo" />
+      </Link>
+    </Logo>
   )
 }
 
-Title.propTypes = {
-  title: PropTypes.string.isRequired,
-}
-
-export default Title
+export default Header

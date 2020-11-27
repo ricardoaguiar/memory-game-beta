@@ -13,7 +13,7 @@
   height: 82pt;
   background-color: #77b800; /* Green */
 }
-.easy-hard-position {
+.easy-hard-container {
   display: flex;
   flex-direction: row;
   justify-content: center;

@@ -1,20 +1,20 @@
-import React from 'react';
+import React from "react"
+import "./App.css"
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   Redirect,
-} from 'react-router-dom';
-import { Home } from './containers/Home/Home';
-import { PickGamePage } from './containers/PickGamePage/PickGamePage.component';
-import { PickLevelPage } from './containers/PickLevelPage/PickLevelPage.component';
-import GamePage from './containers/GamePage/GamePage.component';
-import { RecipePage } from './containers/RecipePage/RecipePage.component';
-import { VoucherPage } from './containers/VoucherPage/VoucherPage.component';
-import { ErrorPage } from './containers/404Page/404Page.component';
+} from "react-router-dom"
+import { Home } from "./containers/Home/Home"
+import { PickGamePage } from "./containers/PickGamePage/PickGamePage.component"
+import { PickLevelPage } from "./containers/PickLevelPage/PickLevelPage.component"
+import GamePage from "./containers/GamePage/GamePage.component"
+import { RecipePage } from "./containers/RecipePage/RecipePage.component"
+import { VoucherPage } from "./containers/VoucherPage/VoucherPage.component"
+import { ErrorPage } from "./containers/404Page/404Page.component"
 
 function App() {
-
   return (
     <React.StrictMode>
       <Router>
@@ -32,6 +32,6 @@ function App() {
         </Switch>
       </Router>
     </React.StrictMode>
-  );
+  )
 }
-export default App;
+export default App

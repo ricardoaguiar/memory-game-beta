@@ -1,10 +1,10 @@
-import React from 'react';
-import '../Game/Game.css';
+import React from "react"
+import "../Game/Game.css"
 
 class Board extends React.Component {
   constructor(props) {
-    super(props);
-    this.onClick = this.onClick.bind(this);
+    super(props)
+    this.onClick = this.onClick.bind(this)
   }
 
   onClick() {
@@ -15,22 +15,30 @@ class Board extends React.Component {
 
   // Set path to images if they are up
   render() {
-    let imagePath = './images/';
+    let imagePath = "./images/"
     if (this.props.imageUp) {
-      imagePath = imagePath + this.props.image + '.png';
+      imagePath = imagePath + this.props.image + ".png"
     } else {
-      imagePath = imagePath + 'back.png';
+      imagePath = imagePath + "back.png"
     }
-
-    let className = 'Card-easy';
+    
+    let className = "Card-easy"
     if (this.props.matched) {
-      className = className + ' Matched';
+      className = className + " Matched"
     }
 
     return (
-      <img className={className} src={require(`${imagePath}`)} alt='' onClick={this.onClick} />
+      <img
+        className={className}
+        src={require(`${imagePath}`)}
+        alt=""
+        onClick={this.onClick}
+      />
+    )
+  }
+}
     );
   };
 };
 
-export default Board;
+export default Board
