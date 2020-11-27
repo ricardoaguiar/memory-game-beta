@@ -16,17 +16,15 @@ export const PickLevelPage = () => (
       <ForkImageComponent />
     </div>
     <GameTitle title="Smørrebrød" />
+    <span className="easy-hard-position">
+      <Link to={{pathname: '/game-page', search: 'easy'}}>
+        <Card text="Easy" image="" color="#77b800" />
+      </Link>
 
-
-        <span className="easy-hard-position">
-          <Link to={{ pathname: "/game-page", search: 'easy' }}>
-            <Card text="Easy" image="" color='#77b800' />
-          </Link>
-
-          <Link to={{ pathname: "/game-page", search: 'hard' }}>
-            <Card text="Hard" image="" color='#f77521' />
-          </Link>
-        </span>
+      <Link to={{pathname: '/game-page', search: 'hard'}}>
+        <Card text="Hard" image="" color="#f77521" />
+      </Link>
+    </span>
 
     <SpoonImageComponent />
 
@@ -34,13 +32,6 @@ export const PickLevelPage = () => (
       <div className="changeMeals">
         <SubmitButton buttonTitle="Change Meals" />
       </div>
-    </div>
-    <div className="quitGame">
-      <Link to='/pick-game-page'>
-        <SubmitButton buttonTitle="Change meal" />
-      </Link>
-    </div>
-
-    <Footer />
-  </section>
-);
+    </Link>
+  </Layout>
+)
