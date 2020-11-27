@@ -8,15 +8,13 @@ export default function Card({
   disabled,
   style: userStyles = {},
 }) {
-
   const content = (
-    <button 
+    <button
       className="card-component"
       type="submit"
       image={image}
       disabled={disabled}
       style={userStyles}
-
     >
       {text}
     </button>
@@ -27,5 +25,7 @@ Card.propTypes = {
   text: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
+  style: PropTypes.object,
 }
+
 Card.defaultProps = { disabled: false }

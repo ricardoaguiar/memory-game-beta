@@ -7,20 +7,28 @@ import SpoonImageComponent from "../../components/SpoonImageComponent/SpoonImage
 import ForkImageComponent from "../../components/ForkImageComponent/ForkImageComponent"
 import SubmitButton from "../../components/SubmitButton/SubmitButton"
 import Layout from "../../components/Layout"
+import styled from "@emotion/styled"
 
+const EasyHardButtons = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`
 export const PickLevelPage = () => (
   <Layout>
     <Title title="MEMORY GAME" subtitle="- perserve culinary heritage -" />
     <ForkImageComponent />
     <GameTitle title="Smørrebrød" />
-    <span className="easy-hard-container">
-      <Link to={{ pathname: "/game-page", query: { level: "easy" } }}>
-        <Card text="Easy" image="" />
+    <EasyHardButtons>
+      <Link to={{ pathname: "/game-page", search: "easy" }}>
+        <Card text="Easy" image="" style={{ background: "#77b800" }} />
       </Link>
-      <Link to={{ pathname: "/game-page", query: { level: "hard" } }}>
-        <Card text="Hard" image="" style={{ backgroundColor: "#f26114" }} />
+
+      <Link to={{ pathname: "/game-page", search: "hard" }}>
+        <Card text="Hard" image="" style={{ background: "#f77521" }} />
       </Link>
-    </span>
+    </EasyHardButtons>
+
     <SpoonImageComponent />
     <div className="changeMeals">
       <Link to="/pick-game-page">

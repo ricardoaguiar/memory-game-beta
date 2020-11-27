@@ -55,20 +55,14 @@ export default class GamePage extends React.Component {
     currentLevel: this.props.location.search && this.props.location.search,
   }
   render() {
-    const timeLevel = this.getLevelTime()
-    const cardNumbers = this.getCardNumbers()
     const { currentLevel } = this.state
     return (
       <Layout>
         <ForkImageComponent />
-        <Game
-          timeLevel={timeLevel}
-          cardNumbers={cardNumbers}
-          currentLevel={currentLevel}
-        />
+        <Game currentLevel={currentLevel} />
         <div className="quitGame">
           <Link to="/pick-level-page">
-            <SubmitButton buttonTitle="Quit Game" />
+            <SubmitButton buttonTitle="Change level" />
           </Link>
         </div>
       </Layout>
