@@ -1,8 +1,4 @@
-.error-page-container {
-  background-image: none;
-}
-
-.error-logo-container {
+.error-message {
   text-align: center;
   padding-top: 1rem;
   padding-bottom: 2rem;
@@ -11,7 +7,7 @@
   border-radius: 5px;
   margin-bottom: 1em;
 }
-.error-logo-container h3 {
+.error-message h3 {
   padding: 20px 0 20px 0;
   font-size: 26px;
 }
