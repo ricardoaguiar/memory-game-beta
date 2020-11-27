@@ -9,7 +9,7 @@ class Board extends React.Component {
 
   onClick() {
     if (!this.props.matched && !this.props.imageUp) {
-      this.props.onClick(this.props.id, this.props.image);
+      this.props.onClick(this.props.id, this.props.image)
     }
   }
 
@@ -21,7 +21,7 @@ class Board extends React.Component {
     } else {
       imagePath = imagePath + "back.png"
     }
-    
+
     let className = "Card-easy"
     if (this.props.matched) {
       className = className + " Matched"
@@ -37,8 +37,5 @@ class Board extends React.Component {
     )
   }
 }
-    );
-  };
-};
 
 export default Board
