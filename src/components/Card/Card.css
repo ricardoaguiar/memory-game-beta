@@ -15,7 +15,7 @@
   /*align-items: center;
   justify-content: center;*/
 }
-.easy-hard-position {
+.easy-hard-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
