@@ -30,6 +30,19 @@
   cursor: pointer;
 }
 
+@media (max-width: 1200px) {
+.Card-easy {
+  margin: 5px;
+  width: 75px;
+}
+}
+
+@media (max-width: 320px) {
+.Card-easy {
+  width: 50px;
+}
+}
+
 .Matched {
   border-color: #ff6700;
 }
@@ -38,9 +51,11 @@
   display: flex;
   flex-flow: row wrap;
   /* width: 330px; */
-  justify-content: center;
-  margin: 0 auto;
+  justify-content: space-around;
+  /* margin: 0 auto; */
+  padding: 0 1rem;
 }
+
 
 .Lvl-button button {
   padding: 3px 15px 3px 15px;
@@ -58,5 +73,3 @@
   border-color: #ff6700;
 }
 
-.Turns {
-}

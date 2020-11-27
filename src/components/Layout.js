@@ -10,8 +10,6 @@ export default function Layout({ children }) {
       {children}
       <FooterComponent />
     </div>
-  )
-}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

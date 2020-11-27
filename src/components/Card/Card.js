@@ -8,13 +8,15 @@ export default function Card({
   disabled,
   style: userStyles = {},
 }) {
+
   const content = (
-    <button
+    <button 
       className="card-component"
       type="submit"
       image={image}
       disabled={disabled}
       style={userStyles}
+
     >
       {text}
     </button>

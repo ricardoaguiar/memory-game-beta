@@ -1,5 +1,4 @@
 .card-component {
-  background-color: #77b800; /* Green */
   border: none;
   color: white;
   /* padding: 20px;*/
@@ -12,13 +11,16 @@
   border-radius: 50%;
   width: 82pt;
   height: 82pt;
-  /*align-items: center;
-  justify-content: center;*/
+  background-color: #77b800; /* Green */
 }
 .easy-hard-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.hard{
+  background-color: #f77521;
 }
 .orange-b {
   color: #f77521;
