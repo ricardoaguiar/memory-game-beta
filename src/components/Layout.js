@@ -3,9 +3,9 @@ import FooterComponent from "./FooterComponent/FooterComponent"
 import GameTitleHeader from "./GameTitleHeader/GameTitleHeader"
 import PropTypes from "prop-types"
 
-export default function Layout({ children }) {
+export default function Layout({ children, style: userStyles = {} }) {
   return (
-    <div className="bodycontainer">
+    <div className="bodycontainer" style={userStyles}>
       <GameTitleHeader />
       {children}
       <FooterComponent />

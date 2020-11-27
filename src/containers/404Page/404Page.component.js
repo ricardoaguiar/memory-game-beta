@@ -1,25 +1,33 @@
-import React from 'react';
-import HeaderTitle from '../../components/Title/Title';
-import ButtonComponent from '../../components/SubmitButton/SubmitButton.js';
-import FooterComponent from '../../components/FooterComponent/FooterComponent.js';
-import '../../App.css';
-import './404Page.styles.css';
+import React from "react"
+import { Link } from "react-router-dom"
+import Title from "../../components/Title/Title"
+import ErrorButton from "../../components/SubmitButton/SubmitButton.js"
+import "./404Page.styles.css"
+import Layout from "../../components/Layout"
+import styled from "@emotion/styled"
+
+const ErrorCont = styled.div`
+  width: 80%;
+  margin: 2rem auto;
+  text-align: center;
+  border-radius: 1rem;
+`
 
 export const ErrorPage = () => {
   return (
-    <div className="bodycontainer error-page-container">
-      <HeaderTitle title="Error 404" subtitle=" " />
-      <div className="bodywrapper">
-        <div className="error-logo-container">
-          <h3>Oh no!</h3>
-          <p>We could not find what you are looking for.</p>
-        </div>
-        <ButtonComponent
-          buttonTitle="Go back"
-          onClick={() => window.history.go(-1)}
+    <Layout style={{ textAlign: "center" }}>
+      <Title title="MEMORY GAME" subtitle="- perserve culinary heritage -" />
+      <ErrorCont className="error-message">
+        <h3>Oh no!</h3>
+        <p>We could not find what you are looking for.</p>
+      </ErrorCont>
+      <Link to="/">
+        <ErrorButton
+          buttonTitle="New Game"
+          // onClick={() => window.history.go(-1)}
+          style={{ margin: "2rem auto" }}
         />
-      </div>
-      <FooterComponent />
-    </div>
-  );
-};
+      </Link>
+    </Layout>
+  )
+}

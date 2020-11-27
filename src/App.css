@@ -46,12 +46,6 @@ h3 {
   padding: 0;
 }
 
-.homelogo {
-  /* width: 35%; */
-  /* text-align: center;
-  margin: 0px auto 0px auto; */
-}
-
 .footer-component {
   z-index: 1;
   height: 125px;
@@ -61,15 +55,15 @@ h3 {
 }
 
 /* Small devices (landscape phones, 576px and up) */
-@media (max-width: 576px) {
+@media (min-width: 320px) {
   .bodycontainer {
-    width: 100vw;
+    width: 375px;
   }
 }
 
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .bodycontainer {
-    max-width: 50%;
+    width: 375px;
   }
-}
+} */
