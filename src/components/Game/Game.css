@@ -30,6 +30,12 @@
   cursor: pointer;
 }
 
+@media (min-width: 1199px) {
+  .Card-easy {
+    margin: 5px;
+    width: 75px;
+  }
+}
 @media (max-width: 1200px) {
   .Card-easy {
     margin: 5px;
