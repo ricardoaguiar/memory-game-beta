@@ -13,12 +13,12 @@ export const PickGamePage = () => (
     <ForkImageComponent />
     <div className="pickGameButton SmørrebrødButton">
       <Link to="/pick-level-page">
-        <SubmitButton buttonTitle="Smørrebrød" title={"Smørrebrød"} />
+        <SubmitButton buttonTitle="Smørrebrød" />
       </Link>
     </div>
     <div className="pickGameButton WienerbrødButton">
       <Link to="/pick-level-page">
-        <SubmitButton buttonTitle="Wienerbrød" title={"Wienerbrød"} />
+        <SubmitButton buttonTitle="Wienerbrød" />
       </Link>
     </div>
     <SpoonImageComponent />

@@ -3,8 +3,10 @@ import Board from "../Board/Board.js";
 import shuffle from "shuffle-array";
 import "./Game.css";
 import Timer from "../Timer/Timer.js";
+import CustomizedAlert from "../CustomizedAlert/CustomizedAlert.js";
 
 class Game extends React.Component {
+  
   constructor(props) {
     super(props);
     this.onCardClicked = this.onCardClicked.bind(this);
@@ -12,8 +14,17 @@ class Game extends React.Component {
     this.cards = [];
   }
 
+  state = {
+    title: '',
+    button: '',
+    link: '',
+    minutes: null,
+    seconds: 0,
+    isShown: false
+  }
   componentWillMount() {
-    this.lvlCreate(6);
+    clearInterval(this.myInterval)
+    this.lvlCreate(this.getCardNumbers());
   }
 
   createCardSet(level) {
@@ -133,7 +144,7 @@ class Game extends React.Component {
       } else {
         this.timeout = setTimeout(() => {
           this.clearCards(this.state.firstId, this.state.secondId);
-        }, 2000);
+        }, 500);
       }
     }
   }
@@ -148,29 +159,71 @@ class Game extends React.Component {
       secondId: undefined
     });
   }
-  componentDidMount() {
-    this.lvlCreate(this.props.cardNumbers)
+  getStatusGame = () => {
+    const { minutes, seconds } = this.state
+    if (minutes === 0 && seconds === 0) {
+      return <p>Time out!</p>
+    }
+    else {
+      return <p>Time: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</p>
+    }
   }
-  // Show game score
+  componentDidMount() {
+    this.setState({ minutes: this.getLevelTime() })
+    this.myInterval = setInterval(() => {
+      const { seconds, minutes } = this.state
+
+      if (seconds > 0) {
+        this.setState(({ seconds }) => ({
+          seconds: seconds - 1
+        }))
+      }
+      if (seconds === 0) {
+        if (minutes === 0) {
+          clearInterval(this.myInterval)
+        } else {
+          this.setState(({ minutes }) => ({
+            minutes: minutes - 1,
+            seconds: 59
+          }))
+        }
+      }
+    }, 1000)
+    this.lvlCreate(this.getCardNumbers())
+  }
+  getLevelTime = () => {
+    const { currentLevel } = this.props
+    if (currentLevel === '?easy') return 3
+    else if (currentLevel === '?hard') return 8
+  }
+  getCardNumbers = () => {
+    const { currentLevel } = this.props
+    if (currentLevel === '?easy') return 6
+    else if (currentLevel === '?hard') return 8
+  }
   render() {
-    console.log(this.props.timeLevel, this.props.cardNumbers);
+    const { title, button, link, minutes, seconds, pairsCounter, isShown } = this.state
+    if (minutes === 0 && seconds === 0 && !isShown) {
+      this.setState({ isShown: true, link: '/', button: 'Try again', title: 'Game over!' })
+    }
+    if (pairsCounter === this.getCardNumbers() && !isShown) {
+      this.setState({ isShown: true, link: '/recipe-page', button: 'See meal', title: 'You won!' })
+    }
     let gameBoard = this.getCardViews();
     let gameStatus = (
       <div className="Game-status">
-        <div><Timer timeLevel={this.props.timeLevel} /></div>
-        <div>Found: {this.state.pairsCounter}</div>
+        <div>{this.getStatusGame()}</div>
+        <div>Found: {pairsCounter}</div>
       </div>
     );
 
     return (
-      <div className="Game-board">
-        <div>{gameStatus}</div>
-        {/* <div className="Lvl-button">
-          <button onClick={() => { this.lvlCreate(6) }}>Easy</button>
-          <button onClick={() => { this.lvlCreate(10) }}>Hard</button>
-        </div> */}
-        <div className="Card-container">{gameBoard}</div>
-      </div>
+      <React.Fragment>
+        {isShown && <CustomizedAlert button={button} title={title} link={link} onClose={() => this.setState({ isShown: false })} />}
+        <div className="Game-board">
+          <div>{gameStatus}</div>
+          <div className="Card-container">{gameBoard}</div>
+        </div></React.Fragment>
     );
   }
 }
