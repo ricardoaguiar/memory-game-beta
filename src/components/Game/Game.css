@@ -34,18 +34,21 @@
   .Card-easy {
     margin: 5px;
     width: 75px;
+    height: 75px;
   }
 }
 @media (max-width: 1200px) {
   .Card-easy {
     margin: 5px;
     width: 75px;
+    height: 75px;
   }
 }
 
 @media (max-width: 320px) {
   .Card-easy {
     width: 50px;
+    height: 50px;
   }
 }
 
