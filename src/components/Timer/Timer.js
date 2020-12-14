@@ -32,15 +32,19 @@ export default class Timer extends Component {
   componentWillUnmount() {
     clearInterval(this.myInterval)
   }
-
-  render() {
+  getStatusGame = () => {
     const { minutes, seconds } = this.state
-    let statusGame = minutes === 0 && seconds === 0
-      ? <p>Time out!</p>
-      : <p>Time: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</p>
+    if (minutes === 0 && seconds === 0) {
+      return <p>Time out!</p>
+    }
+    else {
+      return <p>Time: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</p>
+    }
+  }
+  render() {
     return (
       <div>
-        {statusGame}
+        {this.getStatusGame()}
       </div>
     )
   }

@@ -1,15 +1,15 @@
-import React from 'react'
-import FooterComponent from './FooterComponent/FooterComponent'
-import GametTitleHeader from './GameTitleHeader/GameTitleHeader'
-import PropTypes from 'prop-types'
+import React from "react"
+import FooterComponent from "./FooterComponent/FooterComponent"
+import GameTitleHeader from "./GameTitleHeader/GameTitleHeader"
+import PropTypes from "prop-types"
 
-export default function Layout({children}) {
+export default function Layout({ children, style: userStyles = {} }) {
   return (
-    <body className="bodycontainer">
-      <GametTitleHeader />
+    <div className="bodycontainer" style={userStyles}>
+      <GameTitleHeader />
       {children}
       <FooterComponent />
-    </body>
+    </div>
   )
 }
 

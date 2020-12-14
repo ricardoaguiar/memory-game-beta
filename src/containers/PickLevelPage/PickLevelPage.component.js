@@ -1,38 +1,39 @@
-import React from 'react'
-import '../../App.css'
-import {Link} from 'react-router-dom'
-import Title from '../../components/Title/Title'
-import GameTitle from '../../components/GameTitle/GameTitle'
-import Card from '../../components/Card/Card'
-import SpoonImageComponent from '../../components/SpoonImageComponent/SpoonImageComponent'
-import ForkImageComponent from '../../components/ForkImageComponent/ForkImageComponent'
-import SubmitButton from '../../components/SubmitButton/SubmitButton'
-import Layout from '../../components/Layout'
+import React from "react"
+import { Link } from "react-router-dom"
+import Title from "../../components/Title/Title"
+import GameTitle from "../../components/GameTitle/GameTitle"
+import Card from "../../components/Card/Card"
+import SpoonImageComponent from "../../components/SpoonImageComponent/SpoonImageComponent"
+import ForkImageComponent from "../../components/ForkImageComponent/ForkImageComponent"
+import SubmitButton from "../../components/SubmitButton/SubmitButton"
+import Layout from "../../components/Layout"
+import styled from "@emotion/styled"
 
+const EasyHardButtons = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`
 export const PickLevelPage = () => (
   <Layout>
     <Title title="MEMORY GAME" subtitle="- perserve culinary heritage -" />
-    <div className="forkimage">
-      <ForkImageComponent />
-    </div>
+    <ForkImageComponent />
     <GameTitle title="Smørrebrød" />
-
-    <span className="easy-hard-position">
-      <Link to={{pathname: '/game-page', query: {level: 'easy'}}}>
-        <Card text="Easy" image="" />
+    <EasyHardButtons>
+      <Link to={{ pathname: "/game-page", search: "easy" }}>
+        <Card text="Easy" image="" style={{ background: "#77b800" }} />
       </Link>
 
-      <Link to={{pathname: '/game-page', query: {level: 'hard'}}}>
-        <Card text="Hard" image="" />
+      <Link to={{ pathname: "/game-page", search: "hard" }}>
+        <Card text="Hard" image="" style={{ background: "#f77521" }} />
       </Link>
-    </span>
+    </EasyHardButtons>
 
     <SpoonImageComponent />
-
-    <Link to="/pick-game-page">
-      <div className="changeMeals">
+    <div className="changeMeals">
+      <Link to="/pick-game-page">
         <SubmitButton buttonTitle="Change Meals" />
-      </div>
-    </Link>
+      </Link>
+    </div>
   </Layout>
 )
