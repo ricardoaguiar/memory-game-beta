@@ -1,20 +1,22 @@
-import React from 'react';
+import React from "react"
+import "./App.css"
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   Redirect,
-} from 'react-router-dom';
-import { Home } from './containers/Home/Home';
-import { PickGamePage } from './containers/PickGamePage/PickGamePage.component';
-import { PickLevelPage } from './containers/PickLevelPage/PickLevelPage.component';
-import GamePage from './containers/GamePage/GamePage.component';
-import { RecipePage } from './containers/RecipePage/RecipePage.component';
-import { VoucherPage } from './containers/VoucherPage/VoucherPage.component';
-import { ErrorPage } from './containers/404Page/404Page.component';
+} from "react-router-dom"
+import { Home } from "./containers/Home/Home"
+import { PickGamePage } from "./containers/PickGamePage/PickGamePage.component"
+import { Smorrebrod } from "./containers/PickLevelPage/Smorrebrod.component"
+import { Wienerbrod } from "./containers/PickLevelPage/Wienerbrod.component"
+import SmorrebrodGame from "./containers/GamePage/Smorrebrod.GamePage"
+import WienerbrodGame from "./containers/GamePage/Wienerbrod.GamePage"
+import { RecipePage } from "./containers/RecipePage/RecipePage.component"
+import { VoucherPage } from "./containers/VoucherPage/VoucherPage.component"
+import { ErrorPage } from "./containers/404Page/404Page.component"
 
 function App() {
-
   return (
     <React.StrictMode>
       <Router>
@@ -22,9 +24,11 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/game-page" component={GamePage} />
+          <Route exact path="/smorrebrod-game" component={SmorrebrodGame} />
+          <Route exact path="/wienerbrod-game" component={WienerbrodGame} />
           <Route exact path="/pick-game-page" component={PickGamePage} />
-          <Route exact path="/pick-level-page" component={PickLevelPage} />
+          <Route exact path="/smorrebrod" component={Smorrebrod} />
+          <Route exact path="/wienerbrod" component={Wienerbrod} />
           <Route exact path="/recipe-page" component={RecipePage} />
           <Route exact path="/voucher-page" component={VoucherPage} />
           <Route exact path="/404-page" component={ErrorPage} />
@@ -32,6 +36,6 @@ function App() {
         </Switch>
       </Router>
     </React.StrictMode>
-  );
+  )
 }
-export default App;
+export default App
