@@ -12,12 +12,12 @@ export const PickGamePage = () => (
     <Title title="MEMORY GAME" subtitle="- perserve culinary heritage -" />
     <ForkImageComponent />
     <div className="pickGameButton SmørrebrødButton">
-      <Link to="/pick-level-page">
+      <Link to="/smorrebrod">
         <SubmitButton buttonTitle="Smørrebrød" />
       </Link>
     </div>
     <div className="pickGameButton WienerbrødButton">
-      <Link to="/pick-level-page">
+      <Link to="/wienerbrod">
         <SubmitButton buttonTitle="Wienerbrød" />
       </Link>
     </div>

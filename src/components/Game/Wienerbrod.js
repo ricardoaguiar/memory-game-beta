@@ -1,10 +1,10 @@
 import React from "react"
-import Board from "../Board/Board.js"
+import WienerbrodBoard from "../Board/WienerbrodBoard"
 import shuffle from "shuffle-array"
 import "./Game.css"
 import CustomizedAlert from "../CustomizedAlert/CustomizedAlert.js"
 
-class Game extends React.Component {
+class WienerbrodSet extends React.Component {
   constructor(props) {
     super(props)
     this.onCardClicked = this.onCardClicked.bind(this)
@@ -81,7 +81,7 @@ class Game extends React.Component {
     let onClick = this.onCardClicked
     this.cards.forEach(c => {
       let cardView = (
-        <Board
+        <WienerbrodBoard
           key={c.id}
           id={c.id}
           image={c.image}
@@ -255,4 +255,4 @@ class Game extends React.Component {
   }
 }
 
-export default Game
+export default WienerbrodSet

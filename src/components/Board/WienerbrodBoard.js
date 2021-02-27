@@ -1,7 +1,7 @@
 import React from "react"
 import "../Game/Game.css"
 
-class Board extends React.Component {
+class WienerbrodBoard extends React.Component {
   constructor(props) {
     super(props)
     this.onClick = this.onClick.bind(this)
@@ -15,7 +15,7 @@ class Board extends React.Component {
 
   // Set path to images if they are up
   render() {
-    let imagePath = "./images/"
+    let imagePath = "./wienerbrod/"
     if (this.props.imageUp) {
       imagePath = imagePath + this.props.image + ".png"
     } else {
@@ -38,4 +38,4 @@ class Board extends React.Component {
   }
 }
 
-export default Board
+export default WienerbrodBoard

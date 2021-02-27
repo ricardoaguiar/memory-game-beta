@@ -14,17 +14,17 @@ const EasyHardButtons = styled.div`
   flex-direction: row;
   justify-content: center;
 `
-export const PickLevelPage = () => (
+export const Smorrebrod = () => (
   <Layout>
     <Title title="MEMORY GAME" subtitle="- perserve culinary heritage -" />
     <ForkImageComponent />
     <GameTitle title="Smørrebrød" />
     <EasyHardButtons>
-      <Link to={{ pathname: "/game-page", search: "easy" }}>
+      <Link to={{ pathname: "/smorrebrod-game", search: "easy" }}>
         <Card text="Easy" image="" style={{ background: "#77b800" }} />
       </Link>
 
-      <Link to={{ pathname: "/game-page", search: "hard" }}>
+      <Link to={{ pathname: "/smorrebrod-game", search: "hard" }}>
         <Card text="Hard" image="" style={{ background: "#f77521" }} />
       </Link>
     </EasyHardButtons>

@@ -1,11 +1,11 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import Game from "../../components/Game/Game"
+import SmorrebrodSet from "../../components/Game/Smorrebrod"
 import SubmitButton from "../../components/SubmitButton/SubmitButton"
 import ForkImageComponent from "../../components/ForkImageComponent/ForkImageComponent"
 import Layout from "../../components/Layout"
 
-export default class GamePage extends React.Component {
+export default class SmorrebrodGame extends React.Component {
   getLevelTime = () => {
     const currentLevel = this.props.location.query.level
     if (currentLevel === "easy") return 6
@@ -24,9 +24,9 @@ export default class GamePage extends React.Component {
     return (
       <Layout>
         <ForkImageComponent />
-        <Game currentLevel={currentLevel} />
+        <SmorrebrodSet currentLevel={currentLevel} />
         <div className="quitGame">
-          <Link to="/pick-level-page">
+          <Link to="/smorrebrod">
             <SubmitButton buttonTitle="Change level" />
           </Link>
         </div>
