@@ -223,7 +223,7 @@ class WienerbrodSet extends React.Component {
     if (pairsCounter === this.getCardNumbers() && !isShown) {
       this.setState({
         isShown: true,
-        link: "/recipe-page",
+        link: "/wienerbrod-recipe",
         button: "See meal",
         title: "You won!",
       })
