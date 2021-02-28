@@ -223,7 +223,7 @@ class SmorrebrodSet extends React.Component {
     if (pairsCounter === this.getCardNumbers() && !isShown) {
       this.setState({
         isShown: true,
-        link: "/recipe-page",
+        link: "/smorrebrod-recipe",
         button: "See meal",
         title: "You won!",
       })
