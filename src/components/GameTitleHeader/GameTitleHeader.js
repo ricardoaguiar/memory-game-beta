@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import SmallGameLogoImage from "../../assets/images/logo/logo_3x.png"
+import SmallGameLogoImage from "../../assets/images/logo/GrandmaSita-Logo.png"
 import styled from "@emotion/styled"
 
 const Logo = styled.div`
